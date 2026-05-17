@@ -22,14 +22,14 @@ jobs:
         run: |
           docker run --rm \
             -v "${{ github.workspace }}:/workspace" \
-            korg-sdk-build \
+            logue-sdk-dev-env:latest \
             bash -c "cd /workspace && build nts-3_kaoss/dummy-genericfx"
 
       - name: Build microKORG2 dummy delay effect
         run: |
           docker run --rm \
             -v "${{ github.workspace }}:/workspace" \
-            korg-sdk-build \
+            logue-sdk-dev-env:latest \
             bash -c "cd /workspace && build microkorg2/dummy-delfx"
 
       - name: Upload built units
