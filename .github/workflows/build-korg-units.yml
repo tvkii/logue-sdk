@@ -20,11 +20,17 @@ jobs:
 
       - name: Build NTS-3 dummy effect
         run: |
-          docker/run_cmd.sh build nts-3_kaoss/dummy-genericfx
+          docker run --rm \
+            -v "${{ github.workspace }}:/workspace" \
+            korg-sdk-build \
+            bash -c "cd /workspace && build nts-3_kaoss/dummy-genericfx"
 
       - name: Build microKORG2 dummy delay effect
         run: |
-          docker/run_cmd.sh build microkorg2/dummy-delfx
+          docker run --rm \
+            -v "${{ github.workspace }}:/workspace" \
+            korg-sdk-build \
+            bash -c "cd /workspace && build microkorg2/dummy-delfx"
 
       - name: Upload built units
         uses: actions/upload-artifact@v4
